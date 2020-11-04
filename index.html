@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <table border="2" class="main-table">
+        <tbody>
+            <tr class="row1">
+                <td class="font-normal1 wp-25">
+                    <strong>GSTIN: ${data.stringMap.get("GSTIN")}</strong>
+                </td>
+                <td class="frstRowTd" align="center" colspan="2">
+                    <h4><span class="font-normal font-normal1">TAX</span> INVOICE/ Debit Note/ Credit Note</h4>
+                    <h3>Flipkart Ltd.
+                        <span class="font-normal font-normal1">
+                            1/16, Asaf Ali Road, Daryaganj, Delhi-110002
+                        </span>
+                    </h3>
+                    <p class="font-normal1"> PAN: AAJCM7312H</p>
+                </td>
+                <td class="font-normal1 wp-25" align="right">
+                    <i>Original Copy/Duplicate Copy/Extra Copy</i>
+                </td>
+            </tr>
+            <tr class="row2">
+                <td colspan="2">
+                    <p>Your GSTIN No: ${data.stringMap.get("customerGstin")}</p>
+                    <p>Your Invoice Sr. No: # </p>
+                    <p>Your Invoice Date: # </p>
+                </td>
+                <td colspan="2">
+                    <p class="p-padding-bottom"> Date & Time of Supply: # </p>
+                    <p> Place of Supply: # </p>
+                </td>
+            </tr>
+            <tr class="row3">
+                <td colspan="2">
+                    <h5> <i>Detail of Consignee (Delivery Address) : </i> </h5>
+                    <p class="p-padding-topBottom">State: #</p>
+                    <p class="p-padding-bottom">State Code: #</p>
+                    <p>GSTIN No: #</p>
+                    <h5> <i>Detail of Buyer (Buyer Address) : </i> </h5>
+                    <p class="p-padding-topBottom">State: #</p>
+                    <p class="p-padding-bottom">State Code: #</p>
+                    <p>GSTIN No: #</p>
+                </td>
+                <td colspan="2">
+                    <p>Invoice No: ${data.stringMap.get("invoiceNo")}</p>
+                    <p class="p-padding-topBottom">Invoice Date: # </p>
+                    <p>GR/RR No.: #</p>
+                    <p>Transport: #</p>
+                    <p>Vehicle No: #</p>
+                    <p>Station: #</p>
+                </td>
+            </tr>
+            <tr class="row4"> <td colspan="4">
+                <p>#if(!${data.listMap.isEmpty()}) #set($count = 1) #foreach ($e in $data.listMap.get("invoiceItems"))
+                    #set($count = $count +1) #end #end</p>
+                <table cellspacing="0" class="inner-table">
+                    <thead>
+                         <th style="border-left: none ;">S.No</th>
+                         <th>Description of Goods</th>
+                         <th>HSN/SAC </th>
+                         <th>Qty.</th>
+                         <th>Unit</th>
+                         <th>List Price</th>
+                         <th>Discount</th>
+                         <th>IGST Rate</th>
+                         <th>IGST Amount</th>
+                         <th>CGST Amount</th>
+                         <th>SGST Amount</th>
+                         <th style="border-right: none ;">Amount()</th>
+                    </thead>
+                    <tr>
+                        <td style=" border-left:none;">${count}</td>
+                        <td>${e.get("productName")}</td>
+                        <td>${e.get("hsnCode")}</td>
+                        <td>${e.get("quantity")}</td>
+                        <td>${e.get("uom")}</td>
+                        <td>${e.get("price")}</td>
+                        <td>#</td>
+                        <td>${e.get("igstRate")}</td>
+                        <td>${e.get("igstAmount")}</td>
+                        <td>${e.get("cgstAmount")}</td>
+                        <td>${e.get("sgstAmount")}</td>
+                        <td style=" border-right:none;">${e.get("netAmount")}</td>
+                    </tr>
+                    <tr class="inner-table-row3">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td> <Strong>Grand Total </Strong></td>
+                        <td style="padding-bottom: 7px;"><strong> (#) 5.00 </strong></td>
+                        <td><strong>Nos.</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="amount"><span>(#) 5,590.00</span></td>
+                    </tr>
+                    <tr class="inner-table-row4">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="spcl-colm"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                
+                <p style="font-weight: bold; margin:5px"> Sale @Exempt=1,000.00 Grand Total @1%=1,000.00 CGST=5.00 SGST=5.00 @12%=1,000.00 CGST=60.00
+                    SGST=60.00 @18%=1,000.00 CGST=90.00 SGST=90.00 @28%=1</p>
+                 <h4 style="font-weight: bold; margin:5px">(#) Rupees Five Thousand Five Hundred Ninety Only</h4>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h5 style="border-bottom: 2px solid #000; display:inline-block; padding-bottom: 10px;">Trems and Conditions</h5>
+                    <p class="p-padding-topBottom">1. Goods once sold will not be taken back.</p>
+                    <p>2. Interest @ 18% p.a. will be charged if the payment </p>
+                    <p class="p-padding-bottom" style="padding-left: 13px;">is not made with in the stipulated time.</p>
+                    <p>3. Subject to 'Delhi' Jurisdiction only.</p>
+                </td>
+                <td colspan="2">
+                    <p style="border-bottom: 1px solid #000;"> Receiver's Signature</p>
+                    <h4 class="p-padding-bottom">Flipkart Ltd.</h4>
+                    <h4>Authorised Signatory</h4>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

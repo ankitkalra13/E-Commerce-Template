@@ -1,0 +1,114 @@
+
+h1,h2,h3,h4,h5{
+    margin:0;
+}
+
+p {
+    margin: 0;
+    font-size: 12px;
+}
+
+
+.main-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.row1 p{
+  margin:5px 0px 2px 0px;
+}
+
+.row1 td{
+  border:none;
+  vertical-align:top;
+  
+}
+
+.wp-25{
+    width: 25%;
+}
+.frstRowTd{
+    width:50%;
+    position: relative;
+    padding-top: 15px;
+   
+}
+.frstRowTd:before {
+   content: '';
+   width: 100px;
+   border-top: 2px solid #ddd;
+   position: absolute;
+   left: 46%;
+   top: 8px;
+}
+
+
+
+.frstRowTd h4{
+    padding: 5px 0;
+}
+
+.font-normal{
+    font-weight: 400;
+}
+
+.font-normal1{
+    font-size: 14px;
+}
+
+
+.p-padding-topBottom {
+    padding: 15px 0px ;
+}
+
+.p-padding-bottom{
+    padding-bottom: 15px;
+}
+
+.row3 td{
+    vertical-align: top;
+
+}
+
+
+.inner-table {
+    width: 100%; 
+    border-collapse: collapse;      
+}
+
+
+.inner-table td,th{
+    font-weight: bold;
+    border: 2px solid;
+}
+
+
+.inner-table th{
+    border-top: none;
+}
+
+.inner-table-row3 td{
+
+    border: none;
+    padding-top: 5px;
+}
+
+
+
+.inner-table-row3 .amount{
+    border : 1px solid;
+    border-right: none;
+    line-height: 5px;
+}
+
+
+.inner-table-row4 td {
+
+    border: none;
+    padding-bottom: 15px;
+}
+
+
+.inner-table-row4 .spcl-colm {
+    border-top: 2px solid #000;
+}
